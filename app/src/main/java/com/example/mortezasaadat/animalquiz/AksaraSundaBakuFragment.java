@@ -27,8 +27,8 @@ public class AksaraSundaBakuFragment extends Fragment {
         aksaras.add(new Aksara("Ga", R.drawable.baku_ga));
         aksaras.add(new Aksara("Nga", R.drawable.baku_nga));
         aksaras.add(new Aksara("Ca", R.drawable.baku_ca));
-        aksaras.add(new Aksara("Ja"));
-        aksaras.add(new Aksara("Nya"));
+        aksaras.add(new Aksara("Ja", R.drawable.baku_ja));
+        aksaras.add(new Aksara("Nya", R.drawable.baku_nya));
 
         ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);
         AksaraAdapter itemsAdapter = new AksaraAdapter(getActivity(), aksaras);
