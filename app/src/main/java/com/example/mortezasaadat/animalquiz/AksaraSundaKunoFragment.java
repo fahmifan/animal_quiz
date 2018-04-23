@@ -22,12 +22,12 @@ public class AksaraSundaKunoFragment extends Fragment {
 
         // Create a list of aksara
         final ArrayList<Aksara> aksaras = new ArrayList<>();
-        aksaras.add(new Aksara("Ka"));
-        aksaras.add(new Aksara("Ga"));
-        aksaras.add(new Aksara("Nga"));
-        aksaras.add(new Aksara("Ca"));
-        aksaras.add(new Aksara("Ja"));
-        aksaras.add(new Aksara("Nya"));
+        aksaras.add(new Aksara("Ka", R.drawable.kuno_ka));
+        aksaras.add(new Aksara("Ga", R.drawable.kuno_ga));
+        aksaras.add(new Aksara("Nga", R.drawable.kuno_nga));
+        aksaras.add(new Aksara("Ca", R.drawable.kuno_ca));
+        aksaras.add(new Aksara("Ja", R.drawable.kuno_ja));
+        aksaras.add(new Aksara("Nya", R.drawable.kuno_nya));
 
         // inject the arraylist to listview
         ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);

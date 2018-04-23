@@ -123,34 +123,49 @@ public class QuizActivityFragment extends Fragment {
 
                 if (numberOfRightAnswers == NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ) {
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage(getString(R.string.results_string_value, numberOfAllGuesses,
+                            (1000 / (double) numberOfAllGuesses)));
 
-                    DialogFragment animalQuizResults = new DialogFragment() {
 
-
-                        @NonNull
+                    builder.setPositiveButton(R.string.reset_animal_quiz, new DialogInterface.OnClickListener() {
                         @Override
-                        public Dialog onCreateDialog(Bundle savedInstanceState) {
+                        public void onClick(DialogInterface dialog, int which) {
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setMessage(getString(R.string.results_string_value, numberOfAllGuesses,
-                                    (1000 / (double) numberOfAllGuesses)));
+                            resetAnimalQuiz();
 
-
-                            builder.setPositiveButton(R.string.reset_animal_quiz, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                    resetAnimalQuiz();
-
-                                }
-                            });
-
-                            return builder.create();
                         }
-                    };
+                    }).create().show();
+                    builder.setCancelable(false);
 
-                    animalQuizResults.setCancelable(false);
-                    animalQuizResults.show(getFragmentManager(), "AnimalQuizResults");
+
+//                    DialogFragment animalQuizResults = new DialogFragment() {
+//
+//
+//                        @NonNull
+//                        @Override
+//                        public Dialog onCreateDialog(Bundle savedInstanceState) {
+//
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                            builder.setMessage(getString(R.string.results_string_value, numberOfAllGuesses,
+//                                    (1000 / (double) numberOfAllGuesses)));
+//
+//
+//                            builder.setPositiveButton(R.string.reset_animal_quiz, new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
+//
+//                                    resetAnimalQuiz();
+//
+//                                }
+//                            });
+//
+//                            return builder.create();
+//                        }
+//                    };
+
+//                    animalQuizResults.setCancelable(false);
+//                    animalQuizResults.show(getFragmentManager(), "AnimalQuizResults");
 
                 } else {
 
