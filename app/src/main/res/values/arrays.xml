@@ -13,9 +13,10 @@
 
     <string-array name="type_of_animals">
 
-
-        <item>Wild Animals</item>
-        <item>Tame Animals</item>
+        <!--Aksara Kuno = Wild-->
+        <item>Kuno Animals</item>
+        <!--Aksara Baku = Tame-->
+        <item>Baku Animals</item>
 
     </string-array>
 

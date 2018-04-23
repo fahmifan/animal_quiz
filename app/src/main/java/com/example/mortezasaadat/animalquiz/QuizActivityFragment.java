@@ -33,17 +33,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import static android.R.attr.button;
-import static android.R.attr.name;
-import static android.R.attr.path;
-import static android.R.attr.radius;
-import static com.example.mortezasaadat.animalquiz.MainActivity.ANIMALS_TYPE;
-import static com.example.mortezasaadat.animalquiz.MainActivity.GUESSES;
-
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class QuizActivityFragment extends Fragment {
 
 
     private static final int NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ = 10;
@@ -66,7 +59,7 @@ public class MainActivityFragment extends Fragment {
     private TextView txtAnswer;
 
 
-    public MainActivityFragment() {
+    public QuizActivityFragment() {
     }
 
     @Override
@@ -382,7 +375,7 @@ public class MainActivityFragment extends Fragment {
 
     public void modifyAnimalsGuessRows(SharedPreferences sharedPreferences) {
 
-        final String  NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(MainActivity.GUESSES, null);
+        final String  NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(QuizActivity.GUESSES, null);
 
         numberOfAnimalsGuessRows = Integer.parseInt(NUMBER_OF_GUESS_OPTIONS) / 2;
 
@@ -404,14 +397,14 @@ public class MainActivityFragment extends Fragment {
 
     public void modifyTypeOfAnimalsInQuiz(SharedPreferences sharedPreferences) {
 
-        animalTypesInQuiz = sharedPreferences.getStringSet(MainActivity.ANIMALS_TYPE, null);
+        animalTypesInQuiz = sharedPreferences.getStringSet(QuizActivity.ANIMALS_TYPE, null);
 
     }
 
 
     public void modifyQuizFont(SharedPreferences sharedPreferences) {
 
-        String fontStringValue = sharedPreferences.getString(MainActivity.QUIZ_FONT, null);
+        String fontStringValue = sharedPreferences.getString(QuizActivity.QUIZ_FONT, null);
 
         switch (fontStringValue) {
 
@@ -421,7 +414,7 @@ public class MainActivityFragment extends Fragment {
                     for (int column = 0; column < row.getChildCount(); column++) {
 
                         Button button = (Button) row.getChildAt(column);
-                        button.setTypeface(MainActivity.chunkfive);
+                        button.setTypeface(QuizActivity.chunkfive);
 
                     }
 
@@ -435,7 +428,7 @@ public class MainActivityFragment extends Fragment {
                     for (int column = 0; column < row.getChildCount(); column++) {
 
                         Button button = (Button) row.getChildAt(column);
-                        button.setTypeface(MainActivity.fontlerybrown);
+                        button.setTypeface(QuizActivity.fontlerybrown);
 
                     }
 
@@ -449,7 +442,7 @@ public class MainActivityFragment extends Fragment {
                     for (int column = 0; column < row.getChildCount(); column++) {
 
                         Button button = (Button) row.getChildAt(column);
-                        button.setTypeface(MainActivity.wonderbarDemo);
+                        button.setTypeface(QuizActivity.wonderbarDemo);
 
                     }
 
@@ -464,7 +457,7 @@ public class MainActivityFragment extends Fragment {
 
     public void modifyBackgroundColor(SharedPreferences sharedPreferences) {
 
-        String backgroundColor = sharedPreferences.getString(MainActivity.QUIZ_BACKGROUND_COLOR, null);
+        String backgroundColor = sharedPreferences.getString(QuizActivity.QUIZ_BACKGROUND_COLOR, null);
 
         switch (backgroundColor) {
 
