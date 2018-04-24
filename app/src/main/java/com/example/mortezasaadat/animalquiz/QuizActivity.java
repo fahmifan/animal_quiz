@@ -17,7 +17,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     public static final String GUESSES = "settings_numberOfGuesses";
-    public static final String ANIMALS_TYPE = "settings_animalsType";
+    public static final String AKSARA_TYPE = "settings_animalsType";
     public static final String QUIZ_BACKGROUND_COLOR = "settings_quiz_background_color";
     public static final String QUIZ_FONT = "settings_quiz_font";
 
@@ -60,7 +60,7 @@ public class QuizActivity extends AppCompatActivity {
         modifyQuizFragment.modifyTypeOfAksaraInQuiz(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
         modifyQuizFragment.modifyQuizFont(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
         modifyQuizFragment.modifyBackgroundColor(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
-        modifyQuizFragment.resetAnimalQuiz();
+        modifyQuizFragment.resetAksaraQuiz();
         isSettingsChanged = false;
     }
 
@@ -93,22 +93,22 @@ public class QuizActivity extends AppCompatActivity {
             if (key.equals(GUESSES)) {
 
                 modifyQuizFragment.modifyAksaraGuessRows(sharedPreferences);
-                modifyQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.resetAksaraQuiz();
 
-            } else if (key.equals(ANIMALS_TYPE)) {
+            } else if (key.equals(AKSARA_TYPE)) {
 
-                Set<String> animalTypes = sharedPreferences.getStringSet(ANIMALS_TYPE, null);
+                Set<String> animalTypes = sharedPreferences.getStringSet(AKSARA_TYPE, null);
 
                 if (animalTypes != null && animalTypes.size() > 0) {
 
                     modifyQuizFragment.modifyTypeOfAksaraInQuiz(sharedPreferences);
-                    modifyQuizFragment.resetAnimalQuiz();
+                    modifyQuizFragment.resetAksaraQuiz();
 
                 } else {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     animalTypes.add(getString(R.string.default_animal_type));
-                    editor.putStringSet(ANIMALS_TYPE, animalTypes);
+                    editor.putStringSet(AKSARA_TYPE, animalTypes);
                     editor.apply();
 
                     Toast.makeText(QuizActivity.this,
@@ -119,11 +119,11 @@ public class QuizActivity extends AppCompatActivity {
             } else if (key.equals(QUIZ_FONT)) {
 
                 modifyQuizFragment.modifyQuizFont(sharedPreferences);
-                modifyQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.resetAksaraQuiz();
             } else if (key.equals(QUIZ_BACKGROUND_COLOR)) {
 
                 modifyQuizFragment.modifyBackgroundColor(sharedPreferences);
-                modifyQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.resetAksaraQuiz();
 
             }
 

@@ -1,7 +1,6 @@
 package com.example.mortezasaadat.animalquiz;
 
 import android.animation.Animator;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -9,8 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -38,26 +35,24 @@ import java.util.Set;
  */
 public class QuizActivityFragment extends Fragment {
 
+    private static final int NUMBER_OF_AKSARA_INCLUDED_IN_QUIZ = 10;
 
-    private static final int NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ = 10;
-
-    private List<String> allAnimalsNamesList;
-    private List<String> animalsNamesQuizList;
-    private Set<String> animalTypesInQuiz;
-    private String correctAnimalsAnswer;
+    private List<String> allAksaraList;
+    private List<String> aksaraNamesQuizList;
+    private Set<String> aksaraTypesInQuiz;
+    private String correctAksaraAnswer;
     private int numberOfAllGuesses;
     private int numberOfRightAnswers;
-    private int numberOfAnimalsGuessRows;
+    private int numberOfAksaraGuessRows;
     private SecureRandom secureRandomNumber;
     private Handler handler;
     private Animation wrongAnswerAnimation;
 
-    private LinearLayout animalQuizLinearLayout;
+    private LinearLayout aksaraQuizLinearLayout;
     private TextView txtQuestionNumber;
-    private ImageView imgAnimal;
-    private LinearLayout[] rowsOfGuessButtonsInAnimalQuiz;
+    private ImageView imgAksara;
+    private LinearLayout[] rowsOfGuessButtonsAksaraQuiz;
     private TextView txtAnswer;
-
 
     public QuizActivityFragment() {
     }
@@ -67,28 +62,25 @@ public class QuizActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
-
-        allAnimalsNamesList = new ArrayList<>();
-        animalsNamesQuizList = new ArrayList<>();
+        allAksaraList = new ArrayList<>();
+        aksaraNamesQuizList = new ArrayList<>();
         secureRandomNumber = new SecureRandom();
         handler = new Handler();
 
-
         wrongAnswerAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.wrong_answer_animation);
-
         wrongAnswerAnimation.setRepeatCount(1);
 
 
-        animalQuizLinearLayout = (LinearLayout) view.findViewById(R.id.animalQuizLinearLayout);
+        aksaraQuizLinearLayout = (LinearLayout) view.findViewById(R.id.animalQuizLinearLayout);
         txtQuestionNumber = (TextView) view.findViewById(R.id.txtQuestionNumber);
-        imgAnimal = (ImageView) view.findViewById(R.id.imgAnimal);
-        rowsOfGuessButtonsInAnimalQuiz = new LinearLayout[3];
-        rowsOfGuessButtonsInAnimalQuiz[0] = (LinearLayout) view.findViewById(R.id.firstRowLinearLayout);
-        rowsOfGuessButtonsInAnimalQuiz[1] = (LinearLayout) view.findViewById(R.id.secondRowLinearLayout);
-        rowsOfGuessButtonsInAnimalQuiz[2] = (LinearLayout) view.findViewById(R.id.thirdRowLinearLayout);
+        imgAksara = (ImageView) view.findViewById(R.id.imgAnimal);
+        rowsOfGuessButtonsAksaraQuiz = new LinearLayout[3];
+        rowsOfGuessButtonsAksaraQuiz[0] = (LinearLayout) view.findViewById(R.id.firstRowLinearLayout);
+        rowsOfGuessButtonsAksaraQuiz[1] = (LinearLayout) view.findViewById(R.id.secondRowLinearLayout);
+        rowsOfGuessButtonsAksaraQuiz[2] = (LinearLayout) view.findViewById(R.id.thirdRowLinearLayout);
         txtAnswer = (TextView) view.findViewById(R.id.txtAnswer);
 
-        for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+        for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
             for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -98,7 +90,7 @@ public class QuizActivityFragment extends Fragment {
             }
         }
 
-        txtQuestionNumber.setText(getString(R.string.question_text, 1, NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ));
+        txtQuestionNumber.setText(getString(R.string.question_text, 1, NUMBER_OF_AKSARA_INCLUDED_IN_QUIZ));
         return view;
     }
 
@@ -109,19 +101,18 @@ public class QuizActivityFragment extends Fragment {
 
             Button btnGuess = ((Button) view);
             String guessValue = btnGuess.getText().toString();
-            String answerValue = getTheExactAnimalName(correctAnimalsAnswer);
+            String answerValue = getTheExactAksaraName(correctAksaraAnswer);
             ++numberOfAllGuesses;
 
             if (guessValue.equals(answerValue)) {
 
                 ++numberOfRightAnswers;
 
-
                 txtAnswer.setText(answerValue + "!" + " RIGHT");
 
                 disableQuizGuessButtons();
 
-                if (numberOfRightAnswers == NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ) {
+                if (numberOfRightAnswers == NUMBER_OF_AKSARA_INCLUDED_IN_QUIZ) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage(getString(R.string.results_string_value, numberOfAllGuesses,
@@ -132,47 +123,18 @@ public class QuizActivityFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            resetAnimalQuiz();
+                            resetAksaraQuiz();
 
                         }
                     }).create().show();
                     builder.setCancelable(false);
-
-
-//                    DialogFragment animalQuizResults = new DialogFragment() {
-//
-//
-//                        @NonNull
-//                        @Override
-//                        public Dialog onCreateDialog(Bundle savedInstanceState) {
-//
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                            builder.setMessage(getString(R.string.results_string_value, numberOfAllGuesses,
-//                                    (1000 / (double) numberOfAllGuesses)));
-//
-//
-//                            builder.setPositiveButton(R.string.reset_animal_quiz, new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//
-//                                    resetAnimalQuiz();
-//
-//                                }
-//                            });
-//
-//                            return builder.create();
-//                        }
-//                    };
-
-//                    animalQuizResults.setCancelable(false);
-//                    animalQuizResults.show(getFragmentManager(), "AnimalQuizResults");
 
                 } else {
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            animateAnimalQuiz(true);
+                            animateAksaraQuiz(true);
                         }
                     }, 1000);
 
@@ -180,29 +142,25 @@ public class QuizActivityFragment extends Fragment {
 
             } else {
 
-                imgAnimal.startAnimation(wrongAnswerAnimation);
+                imgAksara.startAnimation(wrongAnswerAnimation);
 
                 txtAnswer.setText(R.string.wrong_answer_message);
                 btnGuess.setEnabled(false);
-
 
             }
         }
     };
 
-
-    private String getTheExactAnimalName(String animalName) {
-
-        return animalName.substring(animalName.indexOf('-') + 1).replace('_', ' ');
-
+    private String getTheExactAksaraName(String aksaraName) {
+        return aksaraName.substring(aksaraName.indexOf('-') + 1).replace('_', ' ');
     }
 
 
     private void disableQuizGuessButtons() {
 
-        for (int row = 0; row < numberOfAnimalsGuessRows; row++) {
+        for (int row = 0; row < numberOfAksaraGuessRows; row++) {
 
-            LinearLayout guessRowLinearLayout = rowsOfGuessButtonsInAnimalQuiz[row];
+            LinearLayout guessRowLinearLayout = rowsOfGuessButtonsAksaraQuiz[row];
 
             for (int buttonIndex = 0; buttonIndex < guessRowLinearLayout.getChildCount(); buttonIndex++) {
 
@@ -215,57 +173,57 @@ public class QuizActivityFragment extends Fragment {
     }
 
 
-    public void resetAnimalQuiz() {
+    public void resetAksaraQuiz() {
 
         AssetManager assets = getActivity().getAssets();
-        allAnimalsNamesList.clear();
+        allAksaraList.clear();
 
         try {
 
-            for (String animalType : animalTypesInQuiz) {
+            for (String aksaraType : aksaraTypesInQuiz) {
 
-                String[] animalImagePathsInQuiz = assets.list(animalType);
+                String[] aksaraImagePathsInQuiz = assets.list(aksaraType);
 
-                for (String animalImagePathInQuiz : animalImagePathsInQuiz) {
+                for (String aksaraImagePathInQuiz : aksaraImagePathsInQuiz) {
 
-                    allAnimalsNamesList.add(animalImagePathInQuiz.replace(".png", ""));
+                    allAksaraList.add(aksaraImagePathInQuiz.replace(".png", ""));
 
                 }
 
             }
 
         } catch (IOException e) {
-            Log.e("AnimalQuiz", "Error", e);
+            Log.e("Askara", "Error", e);
         }
 
         numberOfRightAnswers = 0;
         numberOfAllGuesses = 0;
-        animalsNamesQuizList.clear();
+        aksaraNamesQuizList.clear();
 
         int counter = 1;
-        int numberOfAvailableAnimals = allAnimalsNamesList.size();
+        int numberOfAvailableAnimals = allAksaraList.size();
 
-        while (counter <= NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ) {
+        while (counter <= NUMBER_OF_AKSARA_INCLUDED_IN_QUIZ) {
 
             int randomIndex = secureRandomNumber.nextInt(numberOfAvailableAnimals);
 
-            String animalImageName = allAnimalsNamesList.get(randomIndex);
+            String animalImageName = allAksaraList.get(randomIndex);
 
-            if (!animalsNamesQuizList.contains(animalImageName)) {
+            if (!aksaraNamesQuizList.contains(animalImageName)) {
 
-                animalsNamesQuizList.add(animalImageName);
+                aksaraNamesQuizList.add(animalImageName);
                 ++counter;
 
             }
 
         }
 
-        showNextAnimal();
+        showNextAksara();
 
     }
 
 
-    private void animateAnimalQuiz(boolean animateOutAnimalImage) {
+    private void animateAksaraQuiz(boolean animateOutAksaraImage) {
 
         if (numberOfRightAnswers == 0) {
 
@@ -277,17 +235,17 @@ public class QuizActivityFragment extends Fragment {
         int yTopLeft = 0;
 
 
-        int xBottomRight = animalQuizLinearLayout.getLeft() + animalQuizLinearLayout.getRight();
-        int yBottomRight = animalQuizLinearLayout.getTop() + animalQuizLinearLayout.getBottom();
+        int xBottomRight = aksaraQuizLinearLayout.getLeft() + aksaraQuizLinearLayout.getRight();
+        int yBottomRight = aksaraQuizLinearLayout.getTop() + aksaraQuizLinearLayout.getBottom();
 
         // Here is max value for radius
-        int radius = Math.max(animalQuizLinearLayout.getWidth(), animalQuizLinearLayout.getHeight());
+        int radius = Math.max(aksaraQuizLinearLayout.getWidth(), aksaraQuizLinearLayout.getHeight());
 
         Animator animator;
 
-        if (animateOutAnimalImage) {
+        if (animateOutAksaraImage) {
 
-            animator = ViewAnimationUtils.createCircularReveal(animalQuizLinearLayout,
+            animator = ViewAnimationUtils.createCircularReveal(aksaraQuizLinearLayout,
                     xBottomRight, yBottomRight, radius, 0);
 
 
@@ -299,8 +257,7 @@ public class QuizActivityFragment extends Fragment {
 
                 @Override
                 public void onAnimationEnd(Animator animation) {
-
-                    showNextAnimal();
+                    showNextAksara();
                 }
 
                 @Override
@@ -317,7 +274,7 @@ public class QuizActivityFragment extends Fragment {
 
         } else {
 
-            animator = ViewAnimationUtils.createCircularReveal(animalQuizLinearLayout,
+            animator = ViewAnimationUtils.createCircularReveal(aksaraQuizLinearLayout,
                     xTopLeft, yTopLeft, 0, radius);
 
         }
@@ -330,58 +287,57 @@ public class QuizActivityFragment extends Fragment {
 
 
 
-    private void showNextAnimal() {
+    private void showNextAksara() {
 
-        String nextAnimalImageName = animalsNamesQuizList.remove(0);
-        correctAnimalsAnswer = nextAnimalImageName;
+        String nextAksaraImageName = aksaraNamesQuizList.remove(0);
+        correctAksaraAnswer = nextAksaraImageName;
         txtAnswer.setText("");
 
         txtQuestionNumber.setText(getString(R.string.question_text,
-                (numberOfRightAnswers + 1), NUMBER_OF_ANIMALS_INCLUDED_IN_QUIZ));
+                (numberOfRightAnswers + 1), NUMBER_OF_AKSARA_INCLUDED_IN_QUIZ));
 
-        String animalType = nextAnimalImageName.substring(0, nextAnimalImageName.indexOf("-"));
-
+        String aksaraType = nextAksaraImageName.substring(0, nextAksaraImageName.indexOf("-"));
 
         AssetManager assets = getActivity().getAssets();
 
-        try (InputStream stream = assets.open(animalType + "/" + nextAnimalImageName + ".png")) {
+        try (InputStream stream = assets.open(aksaraType + "/" + nextAksaraImageName + ".png")) {
 
-            Drawable animalImage = Drawable.createFromStream(stream, nextAnimalImageName);
+            Drawable animalImage = Drawable.createFromStream(stream, nextAksaraImageName);
 
-            imgAnimal.setImageDrawable(animalImage);
+            imgAksara.setImageDrawable(animalImage);
 
-            animateAnimalQuiz(false);
+            animateAksaraQuiz(false);
 
         } catch (IOException e) {
-            Log.e("AnimalQuiz", "There is an Error Getting" + nextAnimalImageName, e);
+            Log.e("Askara", "There is an Error Getting" + nextAksaraImageName, e);
         }
 
-        Collections.shuffle(allAnimalsNamesList);
+        Collections.shuffle(allAksaraList);
 
-        int correctAnimalNameIndex = allAnimalsNamesList.indexOf(correctAnimalsAnswer);
-        String correctAnimalName = allAnimalsNamesList.remove(correctAnimalNameIndex);
-        allAnimalsNamesList.add(correctAnimalName);
+        int correctAksaraNameIndex = allAksaraList.indexOf(correctAksaraAnswer);
+        String correctAksaraName = allAksaraList.remove(correctAksaraNameIndex);
+        allAksaraList.add(correctAksaraName);
 
 
-        for (int row = 0; row < numberOfAnimalsGuessRows; row++) {
+        for (int row = 0; row < numberOfAksaraGuessRows; row++) {
 
-            for (int column = 0; column < rowsOfGuessButtonsInAnimalQuiz[row].getChildCount(); column++) {
+            for (int column = 0; column < rowsOfGuessButtonsAksaraQuiz[row].getChildCount(); column++) {
 
-                Button btnGuess = (Button) rowsOfGuessButtonsInAnimalQuiz[row].getChildAt(column);
+                Button btnGuess = (Button) rowsOfGuessButtonsAksaraQuiz[row].getChildAt(column);
                 btnGuess.setEnabled(true);
 
-                String animalImageName = allAnimalsNamesList.get((row * 2) + column);
-                btnGuess.setText(getTheExactAnimalName(animalImageName));
+                String aksaraImageName = allAksaraList.get((row * 2) + column);
+                btnGuess.setText(getTheExactAksaraName(aksaraImageName));
 
             }
 
         }
 
-        int row = secureRandomNumber.nextInt(numberOfAnimalsGuessRows);
+        int row = secureRandomNumber.nextInt(numberOfAksaraGuessRows);
         int column = secureRandomNumber.nextInt(2);
-        LinearLayout randomRow = rowsOfGuessButtonsInAnimalQuiz[row];
-        String correctAnimalImageName = getTheExactAnimalName(correctAnimalsAnswer);
-        ((Button) randomRow.getChildAt(column)).setText(correctAnimalImageName);
+        LinearLayout randomRow = rowsOfGuessButtonsAksaraQuiz[row];
+        String correctAksaraImageName = getTheExactAksaraName(correctAksaraAnswer);
+        ((Button) randomRow.getChildAt(column)).setText(correctAksaraImageName);
 
     }
 
@@ -392,17 +348,17 @@ public class QuizActivityFragment extends Fragment {
 
         final String  NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(QuizActivity.GUESSES, null);
 
-        numberOfAnimalsGuessRows = Integer.parseInt(NUMBER_OF_GUESS_OPTIONS) / 2;
+        numberOfAksaraGuessRows = Integer.parseInt(NUMBER_OF_GUESS_OPTIONS) / 2;
 
-        for (LinearLayout horizontalLinearLayout : rowsOfGuessButtonsInAnimalQuiz) {
+        for (LinearLayout horizontalLinearLayout : rowsOfGuessButtonsAksaraQuiz) {
 
             horizontalLinearLayout.setVisibility(View.GONE);
 
         }
 
-        for (int row = 0; row < numberOfAnimalsGuessRows; row++) {
+        for (int row = 0; row < numberOfAksaraGuessRows; row++) {
 
-            rowsOfGuessButtonsInAnimalQuiz[row].setVisibility(View.VISIBLE);
+            rowsOfGuessButtonsAksaraQuiz[row].setVisibility(View.VISIBLE);
 
         }
 
@@ -412,7 +368,7 @@ public class QuizActivityFragment extends Fragment {
 
     public void modifyTypeOfAksaraInQuiz(SharedPreferences sharedPreferences) {
 
-        animalTypesInQuiz = sharedPreferences.getStringSet(QuizActivity.ANIMALS_TYPE, null);
+        aksaraTypesInQuiz = sharedPreferences.getStringSet(QuizActivity.AKSARA_TYPE, null);
 
     }
 
@@ -424,7 +380,7 @@ public class QuizActivityFragment extends Fragment {
         switch (fontStringValue) {
 
             case "Chunkfive.otf":
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -438,7 +394,7 @@ public class QuizActivityFragment extends Fragment {
                 break;
             case "FontleroyBrown.ttf":
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -452,7 +408,7 @@ public class QuizActivityFragment extends Fragment {
                 break;
             case "Wonderbar Demo.otf":
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -469,7 +425,6 @@ public class QuizActivityFragment extends Fragment {
     }
 
 
-
     public void modifyBackgroundColor(SharedPreferences sharedPreferences) {
 
         String backgroundColor = sharedPreferences.getString(QuizActivity.QUIZ_BACKGROUND_COLOR, null);
@@ -478,9 +433,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "White":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.WHITE);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.WHITE);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -499,9 +454,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "Black":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.BLACK);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.BLACK);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -520,9 +475,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "Green":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.GREEN);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.GREEN);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -542,9 +497,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "Blue":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.BLUE);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.BLUE);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -563,9 +518,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "Red":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.RED);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.RED);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -585,9 +540,9 @@ public class QuizActivityFragment extends Fragment {
 
             case "Yellow":
 
-                animalQuizLinearLayout.setBackgroundColor(Color.YELLOW);
+                aksaraQuizLinearLayout.setBackgroundColor(Color.YELLOW);
 
-                for (LinearLayout row : rowsOfGuessButtonsInAnimalQuiz) {
+                for (LinearLayout row : rowsOfGuessButtonsAksaraQuiz) {
 
                     for (int column = 0; column < row.getChildCount(); column++) {
 
@@ -607,11 +562,4 @@ public class QuizActivityFragment extends Fragment {
         }
 
     }
-
-
-
-
-
-
-
 }
