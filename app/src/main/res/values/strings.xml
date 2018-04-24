@@ -43,8 +43,8 @@
 
     <string name="default_animal_type">Wild_Animals</string>
 
-    <string name="toast_message">One Type of Animals must be selected. The Default
-                                    Value is Wild Animals</string>
+    <string name="toast_message">One Type of Aksara must be selected. The Default
+                                    Value is Wild Aksara</string>
 
     <string name="change_message">New Changes are Applied</string>
 

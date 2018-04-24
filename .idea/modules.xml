@@ -3,9 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AnimalQuiz.iml" filepath="$PROJECT_DIR$/AnimalQuiz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/animal-quiz.iml" filepath="$PROJECT_DIR$/animal-quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/askara-app.iml" filepath="$PROJECT_DIR$/askara-app.iml" />
     </modules>
   </component>
 </project>

@@ -16,7 +16,7 @@ import java.util.Set;
 public class QuizActivity extends AppCompatActivity {
 
 
-    public static final String  GUESSES = "settings_numberOfGuesses";
+    public static final String GUESSES = "settings_numberOfGuesses";
     public static final String ANIMALS_TYPE = "settings_animalsType";
     public static final String QUIZ_BACKGROUND_COLOR = "settings_quiz_background_color";
     public static final String QUIZ_FONT = "settings_quiz_font";
@@ -30,7 +30,7 @@ public class QuizActivity extends AppCompatActivity {
     static Typeface wonderbarDemo;
 
 
-    QuizActivityFragment myAnimalQuizFragment;
+    QuizActivityFragment modifyQuizFragment;
 
 
 
@@ -54,13 +54,13 @@ public class QuizActivity extends AppCompatActivity {
                 registerOnSharedPreferenceChangeListener(settingsChangeListener);
 
 
-        myAnimalQuizFragment = (QuizActivityFragment) getSupportFragmentManager().findFragmentById(R.id.animalQuizFragment);
+        modifyQuizFragment = (QuizActivityFragment) getSupportFragmentManager().findFragmentById(R.id.animalQuizFragment);
 
-        myAnimalQuizFragment.modifyAnimalsGuessRows(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
-        myAnimalQuizFragment.modifyTypeOfAnimalsInQuiz(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
-        myAnimalQuizFragment.modifyQuizFont(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
-        myAnimalQuizFragment.modifyBackgroundColor(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
-        myAnimalQuizFragment.resetAnimalQuiz();
+        modifyQuizFragment.modifyAksaraGuessRows(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
+        modifyQuizFragment.modifyTypeOfAksaraInQuiz(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
+        modifyQuizFragment.modifyQuizFont(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
+        modifyQuizFragment.modifyBackgroundColor(PreferenceManager.getDefaultSharedPreferences(QuizActivity.this));
+        modifyQuizFragment.resetAnimalQuiz();
         isSettingsChanged = false;
     }
 
@@ -92,8 +92,8 @@ public class QuizActivity extends AppCompatActivity {
 
             if (key.equals(GUESSES)) {
 
-                myAnimalQuizFragment.modifyAnimalsGuessRows(sharedPreferences);
-                myAnimalQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.modifyAksaraGuessRows(sharedPreferences);
+                modifyQuizFragment.resetAnimalQuiz();
 
             } else if (key.equals(ANIMALS_TYPE)) {
 
@@ -101,8 +101,8 @@ public class QuizActivity extends AppCompatActivity {
 
                 if (animalTypes != null && animalTypes.size() > 0) {
 
-                    myAnimalQuizFragment.modifyTypeOfAnimalsInQuiz(sharedPreferences);
-                    myAnimalQuizFragment.resetAnimalQuiz();
+                    modifyQuizFragment.modifyTypeOfAksaraInQuiz(sharedPreferences);
+                    modifyQuizFragment.resetAnimalQuiz();
 
                 } else {
 
@@ -118,12 +118,12 @@ public class QuizActivity extends AppCompatActivity {
 
             } else if (key.equals(QUIZ_FONT)) {
 
-                myAnimalQuizFragment.modifyQuizFont(sharedPreferences);
-                myAnimalQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.modifyQuizFont(sharedPreferences);
+                modifyQuizFragment.resetAnimalQuiz();
             } else if (key.equals(QUIZ_BACKGROUND_COLOR)) {
 
-                myAnimalQuizFragment.modifyBackgroundColor(sharedPreferences);
-                myAnimalQuizFragment.resetAnimalQuiz();
+                modifyQuizFragment.modifyBackgroundColor(sharedPreferences);
+                modifyQuizFragment.resetAnimalQuiz();
 
             }
 

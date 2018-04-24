@@ -388,7 +388,7 @@ public class QuizActivityFragment extends Fragment {
 
 
 
-    public void modifyAnimalsGuessRows(SharedPreferences sharedPreferences) {
+    public void modifyAksaraGuessRows(SharedPreferences sharedPreferences) {
 
         final String  NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(QuizActivity.GUESSES, null);
 
@@ -410,7 +410,7 @@ public class QuizActivityFragment extends Fragment {
 
 
 
-    public void modifyTypeOfAnimalsInQuiz(SharedPreferences sharedPreferences) {
+    public void modifyTypeOfAksaraInQuiz(SharedPreferences sharedPreferences) {
 
         animalTypesInQuiz = sharedPreferences.getStringSet(QuizActivity.ANIMALS_TYPE, null);
 
