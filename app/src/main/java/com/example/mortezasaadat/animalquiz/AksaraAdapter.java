@@ -28,7 +28,8 @@ class AksaraAdapter extends ArrayAdapter<NewAksara> {
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item, parent, false);
+                    R.layout.list_item, parent, false
+                );
         }
 
         NewAksara currentAksara = this.aksaraList.get(position);
