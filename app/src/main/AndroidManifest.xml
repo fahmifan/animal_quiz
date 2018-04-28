@@ -21,14 +21,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AksaraActivity"
+            android:name=".NewAksaraActivity"
             android:launchMode="singleTop"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mortezasaadat.animalquiz.AksaraActivity" />
+                android:value="com.example.mortezasaadat.animalquiz.NewAksaraActivity" />
         </activity>
         <activity
             android:name=".QuizActivity"

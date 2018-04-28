@@ -10,13 +10,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        onBelajarAksaraHandler();
+        onAksaraBakuHandler();
         onQuizClick();
     }
 
-    private void onBelajarAksaraHandler() {
-        findViewById(R.id.btn_belajar_aksara).setOnClickListener(view -> {
-            Intent intent = new Intent(this, AksaraActivity.class);
+    private void onAksaraBakuHandler() {
+        findViewById(R.id.btn_aksara_baku).setOnClickListener(view -> {
+            Intent intent = new Intent(this, NewAksaraActivity.class);
             startActivity(intent);
         });
     }
