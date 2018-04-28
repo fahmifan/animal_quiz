@@ -18,12 +18,12 @@ import java.util.ArrayList;
 
 // TODO: Implement the dummy project here
 
-public class NewAksaraFragment extends Fragment {
+public class AksaraFragment extends Fragment {
     private  ArrayList<NewAksara> listAksara = new ArrayList<>();
     private  AssetManager assetManager;
     String aksaraType = "Baku_Ngalagena_Tambahan";
 
-    public NewAksaraFragment() {
+    public AksaraFragment() {
         super();
     }
 
@@ -54,7 +54,7 @@ public class NewAksaraFragment extends Fragment {
 
         ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);
 
-        NewAksaraAdapter itemsAdapter = new NewAksaraAdapter(getActivity(), listAksara);
+        AksaraAdapter itemsAdapter = new AksaraAdapter(getActivity(), listAksara);
         listView.setAdapter(itemsAdapter);
 
         } catch (IOException e) {

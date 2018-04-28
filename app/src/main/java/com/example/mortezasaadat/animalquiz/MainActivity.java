@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onAksaraBakuHandler() {
         findViewById(R.id.btn_aksara_baku).setOnClickListener(view -> {
-            Intent intent = new Intent(this, NewAksaraActivity.class);
+            Intent intent = new Intent(this, AksaraActivity.class);
             startActivity(intent);
         });
     }

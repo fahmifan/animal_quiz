@@ -13,10 +13,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-class NewAksaraAdapter extends ArrayAdapter<NewAksara> {
+class AksaraAdapter extends ArrayAdapter<NewAksara> {
     private List<NewAksara> aksaraList = new ArrayList<>();
 
-    public NewAksaraAdapter(@NonNull Context context, ArrayList<NewAksara> aksaras) {
+    public AksaraAdapter(@NonNull Context context, ArrayList<NewAksara> aksaras) {
         super(context, 0, aksaras);
         aksaraList = aksaras;
     }
