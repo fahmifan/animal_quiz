@@ -97,9 +97,9 @@ public class QuizActivity extends AppCompatActivity {
 
             } else if (key.equals(AKSARA_TYPE)) {
 
-                Set<String> animalTypes = sharedPreferences.getStringSet(AKSARA_TYPE, null);
+                Set<String> aksaraTypes = sharedPreferences.getStringSet(AKSARA_TYPE, null);
 
-                if (animalTypes != null && animalTypes.size() > 0) {
+                if (aksaraTypes != null && aksaraTypes.size() > 0) {
 
                     modifyQuizFragment.modifyTypeOfAksaraInQuiz(sharedPreferences);
                     modifyQuizFragment.resetAksaraQuiz();
@@ -107,8 +107,8 @@ public class QuizActivity extends AppCompatActivity {
                 } else {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    animalTypes.add(getString(R.string.default_animal_type));
-                    editor.putStringSet(AKSARA_TYPE, animalTypes);
+                    aksaraTypes.add(getString(R.string.default_animal_type));
+                    editor.putStringSet(AKSARA_TYPE, aksaraTypes);
                     editor.apply();
 
                     Toast.makeText(QuizActivity.this,

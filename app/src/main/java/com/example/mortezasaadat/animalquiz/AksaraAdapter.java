@@ -13,10 +13,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-class AksaraAdapter extends ArrayAdapter<NewAksara> {
-    private List<NewAksara> aksaraList = new ArrayList<>();
+class AksaraAdapter extends ArrayAdapter<Aksara> {
+    private List<Aksara> aksaraList = new ArrayList<>();
 
-    public AksaraAdapter(@NonNull Context context, ArrayList<NewAksara> aksaras) {
+    public AksaraAdapter(@NonNull Context context, ArrayList<Aksara> aksaras) {
         super(context, 0, aksaras);
         aksaraList = aksaras;
     }
@@ -32,7 +32,7 @@ class AksaraAdapter extends ArrayAdapter<NewAksara> {
                 );
         }
 
-        NewAksara currentAksara = this.aksaraList.get(position);
+        Aksara currentAksara = this.aksaraList.get(position);
 
         TextView aksaraTextView = (TextView) listItemView.findViewById(R.id.aksara_text_view);
         aksaraTextView.setText(currentAksara.getmAksaraWord());

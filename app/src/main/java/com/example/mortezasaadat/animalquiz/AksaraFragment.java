@@ -19,7 +19,7 @@ import java.util.ArrayList;
 // TODO: Implement the dummy project here
 
 public class AksaraFragment extends Fragment {
-    private  ArrayList<NewAksara> listAksara = new ArrayList<>();
+    private  ArrayList<Aksara> listAksara = new ArrayList<>();
     private  AssetManager assetManager;
     String aksaraType = "Baku_Ngalagena_Tambahan";
 
@@ -71,6 +71,6 @@ public class AksaraFragment extends Fragment {
         private void loadAksara(AssetManager assetManager, String imageRes, String imageText) throws IOException {
             InputStream is = assetManager.open(imageRes);
             Bitmap bitmap = BitmapFactory.decodeStream(is);
-            listAksara.add(new NewAksara(imageText, bitmap));
+            listAksara.add(new Aksara(imageText, bitmap));
         }
 }

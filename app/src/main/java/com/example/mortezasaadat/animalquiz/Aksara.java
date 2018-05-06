@@ -2,12 +2,12 @@ package com.example.mortezasaadat.animalquiz;
 
 import android.graphics.Bitmap;
 
-public class NewAksara {
+public class Aksara {
     private static final Bitmap NO_IMAGE_PROVIDED = null;
     private String mAksaraWord;
     private Bitmap mImageBitmap = NO_IMAGE_PROVIDED ;
 
-    public NewAksara(String aksaraWord) {
+    public Aksara(String aksaraWord) {
         mAksaraWord = aksaraWord;
     }
 
@@ -15,7 +15,7 @@ public class NewAksara {
         return mImageBitmap;
     }
 
-    public NewAksara(String aksaraWord, Bitmap imageID) {
+    public Aksara(String aksaraWord, Bitmap imageID) {
         mAksaraWord = aksaraWord;
         mImageBitmap = imageID;
     }
