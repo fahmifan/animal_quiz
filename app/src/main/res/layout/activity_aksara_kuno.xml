@@ -8,17 +8,19 @@
     tools:context=".AksaraKunoActivity">
 
     <Button
-        android:id="@+id/kun_prasasti"
+        android:id="@+id/kuno_prasasti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Prasasti"/>
 
     <Button
+        android:id="@+id/kuno_nsperpustakaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Naskah Perpustakaan"/>
 
     <Button
+        android:id="@+id/kuno_nsciburuy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Naskah Ciburuy"/>

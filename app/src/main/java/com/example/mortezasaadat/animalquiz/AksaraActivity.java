@@ -30,15 +30,15 @@ public class AksaraActivity extends AppCompatActivity {
     private void setAdapterToView(ViewPager viewPager) {
         if(extras.get(Keys.AKSARA_TYPE).equals(Keys.AKSARA_BAKU)) {
 
-            AksaraBakuCategoryPagerAdapter pagerAdapter = new AksaraBakuCategoryPagerAdapter(getSupportFragmentManager());
-            viewPager.setAdapter(pagerAdapter);
+            AksaraCategoryPagerAdapter pa = new AksaraCategoryPagerAdapter(getSupportFragmentManager());
+            pa.setAbsPath("Aksara_Baku/");
+            String[] aksaras = {"Angka", "Ngalagena", "Nagalegan Tambahan", "Swara"};
+            pa.setTabTitles(aksaras);
+
+            viewPager.setAdapter(pa);
             getSupportActionBar().setTitle("Aksara Baku");
 
         } else if(extras.get(Keys.AKSARA_TYPE).equals(Keys.AKSARA_KUNO)) {
-
-//            AksaraKunoPrasastiCategoryPagerAdapter pagerAdapter = new AksaraKunoPrasastiCategoryPagerAdapter(getSupportFragmentManager());
-//            viewPager.setAdapter(pagerAdapter);
-//            getSupportActionBar().setTitle("Aksara Kuno");
 
             Intent intent = new Intent(this, AksaraKunoActivity.class);
             startActivity(intent);

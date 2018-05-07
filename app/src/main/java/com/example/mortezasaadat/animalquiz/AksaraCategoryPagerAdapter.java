@@ -5,22 +5,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-class AksaraKunoPrasastiCategoryPagerAdapter extends FragmentPagerAdapter {
-    // this is also the folder path/folderName where the files are
+class AksaraCategoryPagerAdapter extends FragmentPagerAdapter {
+    // this is also the folder absPath/folderName where the files are
     private String tabTitles[] = new String[]{"Kwl", "Btls", "Kbtn"};
-    private String path = "Aksara_Kuno/Prasasti/";
-    public AksaraKunoPrasastiCategoryPagerAdapter(FragmentManager fm) {super(fm);}
-    public AksaraKunoPrasastiCategoryPagerAdapter(FragmentManager fm, String[] tabTitles, String path) {
-        super(fm);
-        this.tabTitles = tabTitles;
-        this.path = path;
-    }
+    private String absPath = "Aksara_Kuno/Prasasti/";
 
+    public AksaraCategoryPagerAdapter(FragmentManager fm) {super(fm);}
+    public void setTabTitles(String[] tabTitles) {this.tabTitles = tabTitles;}
+    public void setAbsPath(String absPath) {this.absPath = absPath;}
 
     @Override
     public Fragment getItem(int position) {
         AksaraFragment aksaraFragment = new AksaraFragment();
-        aksaraFragment.setAksaraType(path + tabTitles[position]);
+        aksaraFragment.setAksaraType(absPath + tabTitles[position]);
         return aksaraFragment;
     }
 
