@@ -1,5 +1,6 @@
 package com.example.mortezasaadat.animalquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -31,11 +32,16 @@ public class AksaraActivity extends AppCompatActivity {
 
             AksaraBakuCategoryPagerAdapter pagerAdapter = new AksaraBakuCategoryPagerAdapter(getSupportFragmentManager());
             viewPager.setAdapter(pagerAdapter);
+            getSupportActionBar().setTitle("Aksara Baku");
 
         } else if(extras.get(Keys.AKSARA_TYPE).equals(Keys.AKSARA_KUNO)) {
 
-            AksaraKunoCategoryPagerAdapter pagerAdapter = new AksaraKunoCategoryPagerAdapter(getSupportFragmentManager());
-            viewPager.setAdapter(pagerAdapter);
+//            AksaraKunoPrasastiCategoryPagerAdapter pagerAdapter = new AksaraKunoPrasastiCategoryPagerAdapter(getSupportFragmentManager());
+//            viewPager.setAdapter(pagerAdapter);
+//            getSupportActionBar().setTitle("Aksara Kuno");
+
+            Intent intent = new Intent(this, AksaraKunoActivity.class);
+            startActivity(intent);
 
         } else {
             Toast.makeText(this, "Nothing Match", Toast.LENGTH_SHORT).show();

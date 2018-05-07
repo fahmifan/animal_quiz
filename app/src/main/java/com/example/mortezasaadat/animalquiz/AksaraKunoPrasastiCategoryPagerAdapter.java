@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 class AksaraKunoCategoryPagerAdapter extends FragmentPagerAdapter {
-    private String tabTitles[] = new String[]{"Kuno"};
+    private String tabTitles[] = new String[]{"Prasasti"};
 
     public AksaraKunoCategoryPagerAdapter(FragmentManager fm) {super(fm);}
 
@@ -14,7 +14,7 @@ class AksaraKunoCategoryPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         AksaraFragment aksaraFragment = new AksaraFragment();
         switch (position) {
-            case 0: aksaraFragment.setAksaraType("Aksara_Kuno"); break;
+            case 0: aksaraFragment.setAksaraType("Aksara_Kuno/Prasasti/1_Kwl"); break;
             default: return null;
         }
         return aksaraFragment;
