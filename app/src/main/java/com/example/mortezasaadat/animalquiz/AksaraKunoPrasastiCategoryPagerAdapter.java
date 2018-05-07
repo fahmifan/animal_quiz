@@ -5,10 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-class AksaraKunoCategoryPagerAdapter extends FragmentPagerAdapter {
+class AksaraKunoPrasastiCategoryPagerAdapter extends FragmentPagerAdapter {
     private String tabTitles[] = new String[]{"Prasasti"};
 
-    public AksaraKunoCategoryPagerAdapter(FragmentManager fm) {super(fm);}
+    public AksaraKunoPrasastiCategoryPagerAdapter(FragmentManager fm) {super(fm);}
 
     @Override
     public Fragment getItem(int position) {
