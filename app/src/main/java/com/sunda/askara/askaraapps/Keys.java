@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 public final class Keys {
     public static final String AKSARA_TYPE = "AKSARA_TYPE";

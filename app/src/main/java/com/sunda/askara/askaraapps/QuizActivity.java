@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 import java.util.Set;
 

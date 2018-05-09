@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 import java.io.IOException;
 import java.io.InputStream;

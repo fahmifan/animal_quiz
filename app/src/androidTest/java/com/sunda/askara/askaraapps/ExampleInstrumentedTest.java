@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.mortezasaadat.animalquiz", appContext.getPackageName());
+        assertEquals("com.sunda.askara.askaraapps", appContext.getPackageName());
     }
 }

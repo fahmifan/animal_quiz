@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.content.Intent;
 import android.os.Bundle;

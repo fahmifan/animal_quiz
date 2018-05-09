@@ -6,7 +6,7 @@
     android:background="@drawable/hayu_diajar_sunda"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context="com.sunda.askara.askaraapps.MainActivity"
     android:paddingTop="300dp">
 
     <TextView

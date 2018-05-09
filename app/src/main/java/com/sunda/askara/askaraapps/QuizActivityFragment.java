@@ -1,4 +1,4 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.animation.Animator;
 import android.content.DialogInterface;
@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 import java.io.IOException;
 import java.io.InputStream;

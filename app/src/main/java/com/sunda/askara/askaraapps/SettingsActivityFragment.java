@@ -1,7 +1,9 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 /**
  * A placeholder fragment containing a simple view.

@@ -1,10 +1,12 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 public class AksaraKunoViewPager extends AppCompatActivity {
     ViewPager viewPager;

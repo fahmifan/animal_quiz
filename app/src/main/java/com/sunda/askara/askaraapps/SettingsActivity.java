@@ -1,8 +1,10 @@
-package com.example.mortezasaadat.animalquiz;
+package com.sunda.askara.askaraapps;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.example.mortezasaadat.askaraapps.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
