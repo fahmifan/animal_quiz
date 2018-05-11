@@ -19,13 +19,6 @@ public class AksaraKunoActivity extends AppCompatActivity {
         onVokalisasiHandler();
     }
 
-    private void onVokalisasiHandler() {
-        findViewById(R.id.kuno_vokalisasi).setOnClickListener(view -> {
-            intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_VOKALISASI);
-            startActivity(intent);
-        });
-    }
-
     private void onNaskahCiburuyHandler() {
         findViewById(R.id.kuno_nsciburuy).setOnClickListener(view -> {
             intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_NSCIBURUY);
@@ -36,6 +29,13 @@ public class AksaraKunoActivity extends AppCompatActivity {
     private void onNaskahPerpustakaanHandler() {
         findViewById(R.id.kuno_nsperpustakaan).setOnClickListener(view -> {
             intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_NSPERPUSTAKAAN);
+            startActivity(intent);
+        });
+    }
+
+    private void onVokalisasiHandler() {
+        findViewById(R.id.kuno_vokalisasi).setOnClickListener(view -> {
+            intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_VOKALISASI);
             startActivity(intent);
         });
     }

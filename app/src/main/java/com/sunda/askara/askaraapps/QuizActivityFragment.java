@@ -60,7 +60,7 @@ public class QuizActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         allAksaraList = new ArrayList<>();
         aksaraNamesQuizList = new ArrayList<>();
@@ -226,9 +226,7 @@ public class QuizActivityFragment extends Fragment {
     private void animateAksaraQuiz(boolean animateOutAksaraImage) {
 
         if (numberOfRightAnswers == 0) {
-
             return;
-
         }
 
         int xTopLeft = 0;
@@ -283,8 +281,6 @@ public class QuizActivityFragment extends Fragment {
         animator.start();
 
     }
-
-
 
 
     private void showNextAksara() {
@@ -342,11 +338,9 @@ public class QuizActivityFragment extends Fragment {
     }
 
 
-
-
     public void modifyAksaraGuessRows(SharedPreferences sharedPreferences) {
 
-        final String  NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(QuizActivity.GUESSES, null);
+        final String NUMBER_OF_GUESS_OPTIONS = sharedPreferences.getString(QuizActivity.GUESSES, null);
 
         numberOfAksaraGuessRows = Integer.parseInt(NUMBER_OF_GUESS_OPTIONS) / 2;
 
@@ -363,7 +357,6 @@ public class QuizActivityFragment extends Fragment {
         }
 
     }
-
 
 
     public void modifyTypeOfAksaraInQuiz(SharedPreferences sharedPreferences) {

@@ -74,7 +74,6 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-
         Intent preferencesIntent = new Intent(QuizActivity.this, SettingsActivity.class);
         startActivity(preferencesIntent);
         return super.onOptionsItemSelected(item);
