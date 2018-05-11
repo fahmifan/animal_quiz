@@ -32,7 +32,7 @@ public class AksaraActivity extends AppCompatActivity {
 
             AksaraCategoryPagerAdapter pa = new AksaraCategoryPagerAdapter(getSupportFragmentManager());
             pa.setAbsPath("Aksara_Baku/");
-            String[] aksaras = {"Angka", "Ngalagena", "Nagalegan Tambahan", "Swara"};
+            String[] aksaras = {"Angka", "Ngalagena", "Ngalagena Tambahan", "Swara"};
             pa.setTabTitles(aksaras);
 
             viewPager.setAdapter(pa);

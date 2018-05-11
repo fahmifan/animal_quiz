@@ -12,13 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.mortezasaadat.askaraapps.R;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
-// TODO: Implement the dummy project here
 
 public class AksaraFragment extends Fragment {
     private  ArrayList<Aksara> listAksara = new ArrayList<>();
@@ -53,7 +49,6 @@ public class AksaraFragment extends Fragment {
                 );
             }
 
-
         ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);
 
         AksaraAdapter itemsAdapter = new AksaraAdapter(getActivity(), listAksara);
@@ -70,7 +65,8 @@ public class AksaraFragment extends Fragment {
             return assetManager.list(path);
         }
 
-        private void loadAksara(AssetManager assetManager, String imageRes, String imageText) throws IOException {
+        private void loadAksara(
+                AssetManager assetManager, String imageRes, String imageText) throws IOException {
             InputStream is = assetManager.open(imageRes);
             Bitmap bitmap = BitmapFactory.decodeStream(is);
             listAksara.add(new Aksara(imageText, bitmap));

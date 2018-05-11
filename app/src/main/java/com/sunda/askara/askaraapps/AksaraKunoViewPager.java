@@ -1,12 +1,10 @@
 package com.sunda.askara.askaraapps;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
-
-import com.example.mortezasaadat.askaraapps.R;
 
 public class AksaraKunoViewPager extends AppCompatActivity {
     ViewPager viewPager;
@@ -55,6 +53,14 @@ public class AksaraKunoViewPager extends AppCompatActivity {
                 pa.setAbsPath(folderPath);
                 pa.setTabTitles(aksaras);
                 getSupportActionBar().setTitle("Naskah Perpustakaan");
+                break;
+            }
+            case Keys.AKSARA_KUNO_VOKALISASI: {
+                String[] aksaras = {"Vokalisasi"};
+                String folderPath = "Aksara_Kuno/";
+                pa.setAbsPath(folderPath);
+                pa.setTabTitles(aksaras);
+                getSupportActionBar().setTitle("Vokalisasi");
                 break;
             }
             default:

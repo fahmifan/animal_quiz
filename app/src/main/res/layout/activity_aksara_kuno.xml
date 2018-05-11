@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="Naskah Ciburuy"/>
 
+    <Button
+        android:id="@+id/kuno_vokalisasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vokalisasi"/>
+
 </LinearLayout>

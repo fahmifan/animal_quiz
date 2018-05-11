@@ -11,8 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.mortezasaadat.askaraapps.R;
-
 import java.util.Set;
 
 public class QuizActivity extends AppCompatActivity {

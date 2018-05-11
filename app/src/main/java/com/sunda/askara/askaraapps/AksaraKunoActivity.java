@@ -1,10 +1,8 @@
 package com.sunda.askara.askaraapps;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.mortezasaadat.askaraapps.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class AksaraKunoActivity extends AppCompatActivity {
     private Intent intent;
@@ -18,6 +16,14 @@ public class AksaraKunoActivity extends AppCompatActivity {
         onPrasastiHandler();
         onNaskahPerpustakaanHandler();
         onNaskahCiburuyHandler();
+        onVokalisasiHandler();
+    }
+
+    private void onVokalisasiHandler() {
+        findViewById(R.id.kuno_vokalisasi).setOnClickListener(view -> {
+            intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_VOKALISASI);
+            startActivity(intent);
+        });
     }
 
     private void onNaskahCiburuyHandler() {

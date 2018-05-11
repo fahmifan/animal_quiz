@@ -11,6 +11,7 @@ class AksaraCategoryPagerAdapter extends FragmentPagerAdapter {
     private String absPath = "Aksara_Kuno/Prasasti/";
 
     public AksaraCategoryPagerAdapter(FragmentManager fm) {super(fm);}
+    // tabTitles is folder name where the files exists
     public void setTabTitles(String[] tabTitles) {this.tabTitles = tabTitles;}
     public void setAbsPath(String absPath) {this.absPath = absPath;}
 

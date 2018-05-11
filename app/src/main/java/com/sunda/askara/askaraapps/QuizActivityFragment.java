@@ -22,8 +22,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mortezasaadat.askaraapps.R;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
