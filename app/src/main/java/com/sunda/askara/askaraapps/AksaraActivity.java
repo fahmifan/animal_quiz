@@ -27,6 +27,7 @@ public class AksaraActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    // based on AksaraTypes it may set the adpter to view
     private void setAdapterToView(ViewPager viewPager) {
         if(extras.get(Keys.AKSARA_TYPE).equals(Keys.AKSARA_BAKU)) {
 

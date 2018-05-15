@@ -13,6 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* AksaraAdapter will responsible to looping and set the image and text of every Aksara to View
+* */
 class AksaraAdapter extends ArrayAdapter<Aksara> {
     private List<Aksara> aksaraList = new ArrayList<>();
 

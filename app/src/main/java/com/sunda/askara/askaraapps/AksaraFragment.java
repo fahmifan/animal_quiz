@@ -19,12 +19,15 @@ import java.util.ArrayList;
 public class AksaraFragment extends Fragment {
     private  ArrayList<Aksara> listAksara = new ArrayList<>();
     private  AssetManager assetManager;
+
+    // default value to avoid null pointer
     String aksaraType = "Baku_Ngalagena_Tambahan";
 
     public AksaraFragment() {
         super();
     }
 
+    // Set the desired aksara types
     public void setAksaraType(String aksaraType) {
         this.aksaraType = aksaraType;
     }
@@ -39,36 +42,38 @@ public class AksaraFragment extends Fragment {
 
         assetManager = getActivity().getAssets();
 
+        // Load aksara files from assets folder
         try {
-            String[] files = this.getListFileName(aksaraType);
-            for (String res:files) {
+            String[] folder = this.getListFolderName(aksaraType);
+            for (String file:folder) {
                 this.loadAksara(
-                        assetManager,
-                        aksaraType + "/" + res,
-                        res.replace(".png", "")
+                    assetManager,
+                    aksaraType + "/" + file,
+                    // remove the file extention before load it
+                    file.replace(".png", "")
                 );
             }
 
-        ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);
+            ListView listView = (ListView) rootView.findViewById(R.id.aksara_list);
 
-        AksaraAdapter itemsAdapter = new AksaraAdapter(getActivity(), listAksara);
-        listView.setAdapter(itemsAdapter);
+            AksaraAdapter itemsAdapter = new AksaraAdapter(getActivity(), listAksara);
+            listView.setAdapter(itemsAdapter);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) {e.printStackTrace();}
 
         return rootView;
     }
 
-        private String[] getListFileName(String path) throws IOException {
-            return assetManager.list(path);
-        }
+    // Return the array of String file name
+    private String[] getListFolderName(String path) throws IOException {
+        return assetManager.list(path);
+    }
 
-        private void loadAksara(
-                AssetManager assetManager, String imageRes, String imageText) throws IOException {
-            InputStream is = assetManager.open(imageRes);
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            listAksara.add(new Aksara(imageText, bitmap));
-        }
+    // Load aksara image file to listAksara
+    private void loadAksara(
+        AssetManager assetManager, String imageResource, String imageText) throws IOException {
+        InputStream is = assetManager.open(imageResource);
+        Bitmap bitmap = BitmapFactory.decodeStream(is);
+        listAksara.add(new Aksara(imageText, bitmap));
+    }
 }
