@@ -44,8 +44,8 @@ public class AksaraFragment extends Fragment {
 
         // Load aksara files from assets folder
         try {
-            String[] folder = this.getListFolderName(aksaraType);
-            for (String file:folder) {
+            String[] files = this.getListFilesName(aksaraType);
+            for (String file:files) {
                 this.loadAksara(
                     assetManager,
                     aksaraType + "/" + file,
@@ -65,7 +65,7 @@ public class AksaraFragment extends Fragment {
     }
 
     // Return the array of String file name
-    private String[] getListFolderName(String path) throws IOException {
+    private String[] getListFilesName(String path) throws IOException {
         return assetManager.list(path);
     }
 
