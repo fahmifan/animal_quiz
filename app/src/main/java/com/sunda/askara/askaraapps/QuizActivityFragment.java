@@ -108,7 +108,7 @@ public class QuizActivityFragment extends Fragment {
 
                 ++numberOfRightAnswers;
 
-                txtAnswer.setText(answerValue + "!" + " RIGHT");
+                txtAnswer.setText(answerValue + "!" + " Benar");
 
                 disableQuizGuessButtons();
 
