@@ -8,4 +8,5 @@ public final class Keys {
     public static final String AKSARA_KUNO_NSCIBURUY = "AKSARA_KUNO_NSCIBURUY";
     public static final String AKSARA_KUNO_NSPERPUSTAKAAN = "AKSARA_KUNO_NSPERPUSTAKAAN";
     public static final String AKSARA_KUNO_VOKALISASI = "AKSARA_KUNO_VOKALISASI";
+    public static final String AKSARA_KUNO_ANGKA = "AKSARA_KUNO_ANGKA";
 }

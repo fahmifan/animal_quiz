@@ -63,6 +63,14 @@ public class AksaraKunoViewPager extends AppCompatActivity {
                 getSupportActionBar().setTitle("Vokalisasi");
                 break;
             }
+            case Keys.AKSARA_KUNO_ANGKA: {
+                String[] aksaras = {"Angka"};
+                String folderPath = "Aksara_Kuno/";
+                pa.setAbsPath(folderPath);
+                pa.setTabTitles(aksaras);
+                getSupportActionBar().setTitle("Angka");
+                break;
+            }
             default:
                 Toast.makeText(this, "Nothing Match", Toast.LENGTH_SHORT).show();
                 break;

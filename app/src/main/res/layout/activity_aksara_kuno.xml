@@ -9,14 +9,6 @@
     android:gravity="center"
     android:background="@color/whiteSand">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pilih Aksara"
-        android:textAlignment="textStart"
-        android:textSize="50sp"
-        android:layout_marginBottom="30dp"/>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,6 +48,27 @@
             android:layout_margin="2dp"
             android:background="@color/orangeParrot"
             android:id="@+id/kuno_nsperpustakaan"
+            android:layout_width="@dimen/button_wide"
+            android:layout_height="@dimen/button_wide"
+            android:text="Naskah\nPerpustakaan"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_margin="2dp"
+            android:background="@color/orangeParrot"
+            android:id="@+id/kuno_angka"
+            android:layout_width="@dimen/button_wide"
+            android:layout_height="@dimen/button_wide"
+            android:text="Angka"/>
+
+        <Button
+            android:visibility="invisible"
+            android:layout_margin="2dp"
             android:layout_width="@dimen/button_wide"
             android:layout_height="@dimen/button_wide"
             android:text="Naskah\nPerpustakaan"/>

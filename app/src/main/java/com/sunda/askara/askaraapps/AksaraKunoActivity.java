@@ -17,6 +17,7 @@ public class AksaraKunoActivity extends AppCompatActivity {
         onNaskahPerpustakaanHandler();
         onNaskahCiburuyHandler();
         onVokalisasiHandler();
+        onAngkaHandler();
     }
 
     private void onNaskahCiburuyHandler() {
@@ -43,6 +44,13 @@ public class AksaraKunoActivity extends AppCompatActivity {
     private void onPrasastiHandler () {
         findViewById(R.id.kuno_prasasti).setOnClickListener(view -> {
             intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_PRASASTI);
+            startActivity(intent);
+        });
+    }
+
+    private void onAngkaHandler() {
+        findViewById(R.id.kuno_angka).setOnClickListener(view -> {
+            intent.putExtra(Keys.AKSARA_TYPE, Keys.AKSARA_KUNO_ANGKA);
             startActivity(intent);
         });
     }
