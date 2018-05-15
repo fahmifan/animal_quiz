@@ -424,7 +424,7 @@ public class QuizActivityFragment extends Fragment {
 
         switch (backgroundColor) {
 
-            case "White":
+            case "Putih":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.WHITE);
 
@@ -445,7 +445,7 @@ public class QuizActivityFragment extends Fragment {
 
                 break;
 
-            case "Black":
+            case "Hitam":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.BLACK);
 
@@ -466,7 +466,7 @@ public class QuizActivityFragment extends Fragment {
 
                 break;
 
-            case "Green":
+            case "Hijau":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.GREEN);
 
@@ -488,7 +488,7 @@ public class QuizActivityFragment extends Fragment {
 
                 break;
 
-            case "Blue":
+            case "Biru":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.BLUE);
 
@@ -509,7 +509,7 @@ public class QuizActivityFragment extends Fragment {
 
                 break;
 
-            case "Red":
+            case "Merah":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.RED);
 
@@ -531,7 +531,7 @@ public class QuizActivityFragment extends Fragment {
 
                 break;
 
-            case "Yellow":
+            case "Kuning":
 
                 aksaraQuizLinearLayout.setBackgroundColor(Color.YELLOW);
 
